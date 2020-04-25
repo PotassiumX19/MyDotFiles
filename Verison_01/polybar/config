@@ -1,1 +1,203 @@
+[bar/top]
+;monitor = ${env:MONITOR:LVDS-1}
+width = 100%
+height = 28
 
+background = #bb0C021B
+foreground = #ee93bf
+
+border = 0
+
+padding-left = 2
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 2
+
+fixed-center = true
+
+font-0 = Source Code Pro:pixelsize=12:weight=bold;0
+font-1 = FontAwesome:size=12;0
+font-2 = material\-wifi:size=14;0
+
+modules-left = powermenu
+modules-center = i3
+modules-right = pulseaudio wireless-network battery date settings
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-scroll = false
+
+format = <label-state>
+format-padding-right = 1
+
+label-unfocused-foreground = #67405A
+label-unfocused-padding = 1
+
+label-focused-foreground = #C43B99
+label-focused-padding = 1
+
+label-urgent-foreground = #F69C51
+label-urgent-padding = 1
+
+
+[module/date]
+type = internal/date
+
+interval = 1
+
+date = %a 
+time = %H:%M
+
+format = <label>
+label = %date% %time%
+
+
+[module/battery]
+type = internal/battery
+
+full-at = 100
+
+battery = BAT0
+adapter = ACAD
+
+poll-interval = 5
+
+format-charging = <label-charging> <animation-charging> 
+
+format-discharging = <label-discharging> <ramp-capacity>
+
+format-full = <label-full> <ramp-capacity> 
+
+label-charging = %percentage%%
+
+label-discharging = %percentage%%
+
+label-full = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 500
+
+
+[module/powermenu]
+type = custom/menu
+
+label-open =   
+
+label-close = cancel
+
+label-close-background = #bb0C021B
+label-close-foreground = #ee93bf
+label-open-padding-left = 0
+label-open-padding-right = 0
+label-close-padding-right = 2
+
+menu-0-0 = lock
+menu-0-0-exec = ~/.config/i3/lock.sh
+menu-0-0-background = #bb0C021B
+menu-0-0-foreground = #C43B99
+menu-0-0-padding-right = 2
+
+menu-0-1 = reboot
+menu-0-1-exec = menu-open-1
+menu-0-1-background = #bb0C021B
+menu-0-1-foreground = #C43B99
+menu-0-1-padding-right = 2
+
+menu-0-2 = power off
+menu-0-2-exec = menu-open-2
+menu-0-2-background = #bb0C021B
+menu-0-2-foreground = #C43B99
+menu-0-2-padding-right = 2
+
+menu-1-0 = reboot?  
+menu-1-0-exec = reboot
+menu-1-0-background = #bb0C021B
+menu-1-0-foreground = #C43B99
+menu-1-0-padding-right = 2
+
+menu-2-0 = power off?  
+menu-2-0-exec = poweroff
+menu-2-0-background = #bb0C021B
+menu-2-0-foreground = #C43B99
+menu-2-0-padding-right = 2
+
+
+[module/wireless-network]
+type = internal/network
+
+interface = wlp3s0
+
+format-connected = <ramp-signal>
+
+format-disconnected = <label-disconnected>
+
+label-connected = %{A1:nm-connection-editor:}  %{A}
+
+label-disconnected = %{A1:nm-connection-editor:}  %{A}
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = %{A1:nm-connection-editor:}  %{A}
+ramp-signal-1 = %{A1:nm-connection-editor:}  %{A}
+ramp-signal-2 = %{A1:nm-connection-editor:}  %{A}
+ramp-signal-3 = %{A1:nm-connection-editor:}  %{A}
+
+
+[module/title]
+type = internal/xwindow
+
+format = <label>
+
+label = %title%
+label-maxlen = 50
+
+label-empty = i3
+
+
+[module/settings]
+type = custom/script
+exec = echo ""
+click-left = urxvt -e nano $HOME/.config/polybar/config
+label-font = 5
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+use-ui-max = true
+
+interval = 10
+
+format-volume = <ramp-volume> 
+
+format-muted = <label-muted>
+
+label-volume = %percentage:3%%
+
+label-muted = 
+label-muted-foreground = #67405A
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = pavucontrol &
