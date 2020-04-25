@@ -1,1 +1,65 @@
+!-- Xft settings -- !
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcddefault
 
+! -- Fonts -- !
+URxvt*font: xft:SF Mono:style=Regualr:size=12
+URxvt*boldFont: xft:SF Mono:style=Bold:size=12
+URxvt*italicFont: xft:SF Mono:style=Italic:size=12
+URxvt*boldItalicFont: xft:SF Mono:style=Bold Italic:size=12
+URxvt*letterSpace: 0
+URxvt.cursorBlink: 1
+URxvt.cursorUnderline: 1
+
+URxvt*termName:                 rxvt-256color
+URxvt*lineSpace:                0
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 65x17
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           25
+
+
+URxvt.perl-ext-common:          default,matcher,resize-font,xkr-clipboard
+URxvt.url-launcher:             firefox
+URxvt.matcher.button:           1
+URxvt.resize-font.smaller:      A-j
+URxvt.resize-font.bigger:       A-k
+
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Control-Insert:    perl:clipboard:copy
+
+
+urxvt*depth: 32
+urxvt*background: [50]#000000
+
+URxvt.foreground : #fff
+
+URxvt.color0  : #000000
+URxvt.color8  : #212121
+
+URxvt.color1  : #FF6C11
+URxvt.color9  : #FF6C11
+
+URxvt.color2  : #F9C80E
+URxvt.color10 : #F9C80E
+
+URxvt.color3  : #FF4365
+URxvt.color11 : #FF4365
+
+URxvt.color4  : #791E94
+URxvt.color12 : #791E94
+
+URxvt.color5  : #541388
+URxvt.color13 : #541388
+
+URxvt.color6  : #540D6E
+URxvt.color14 : #540D6E
+
+URxvt.color7  : #eaeaea
+URxvt.color15 : #f9f9f9
